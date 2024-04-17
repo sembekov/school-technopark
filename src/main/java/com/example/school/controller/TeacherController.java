@@ -3,6 +3,7 @@ package com.example.school.controller;
 import com.example.school.entity.Enrollment;
 import com.example.school.entity.Teacher;
 import com.example.school.service.TeacherService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,12 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/teachers")
 public class TeacherController {
-
-    @Autowired
-    private TeacherService teacherService;
+    private final TeacherService teacherService;
 
     @GetMapping
     public List<Teacher> getAllTeachers() {

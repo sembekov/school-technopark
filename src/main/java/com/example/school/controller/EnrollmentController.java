@@ -2,6 +2,7 @@ package com.example.school.controller;
 
 import com.example.school.entity.Enrollment;
 import com.example.school.service.EnrollmentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -9,12 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/enrollments")
 public class EnrollmentController {
-
-    @Autowired
-    private EnrollmentService enrollmentService;
+    private final EnrollmentService enrollmentService;
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)

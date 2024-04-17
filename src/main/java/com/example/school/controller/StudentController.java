@@ -2,18 +2,18 @@ package com.example.school.controller;
 
 import com.example.school.entity.Student;
 import com.example.school.service.StudentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
 
     @PostMapping("/create")
     public Student createStudent(@RequestBody Student student) {
